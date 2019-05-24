@@ -1,8 +1,17 @@
 <template>
   <div id="app">
-    
-    <p>{{ message }}</p>
-    
+    <v-app>
+      <v-navigation-drawer app></v-navigation-drawer>
+      <v-toolbar app color="primary" dark>
+        <v-toolbar-title>Training Habits</v-toolbar-title>
+      </v-toolbar>
+      <v-content>
+        <v-container fluid>
+          --
+        </v-container>
+      </v-content>
+      <v-footer app></v-footer>
+    </v-app>
   </div>
 </template>
 

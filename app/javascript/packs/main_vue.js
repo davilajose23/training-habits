@@ -8,9 +8,11 @@
 import Vue from 'vue'
 import App from '../app.vue'
 import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
 Vue.config.productionTip = false
 
 Vue.use(Vuetify)
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const el = document.body.appendChild(document.createElement('main'))
