@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :activity_records
   resources :activity_types
   devise_for :users
   get 'main/index'
