@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @activity_type.name %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @activity_type.unit %>
+</p>
+
+<%= link_to 'Edit', edit_activity_type_path(@activity_type) %> |
+<%= link_to 'Back', activity_types_path %>
