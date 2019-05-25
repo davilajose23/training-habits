@@ -21,3 +21,7 @@
  .navbar-link:visited{
     color: #fff;
  }
+
+ .pt-3{
+     padding-top: 1.5em;
+ }
