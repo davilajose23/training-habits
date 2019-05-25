@@ -1,5 +1,5 @@
 class ActivityTypesController < ApplicationController
-  before_action :set_activity_type, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!,:set_activity_type, only: [:show, :edit, :update, :destroy]
 
   # GET /activity_types
   # GET /activity_types.json
