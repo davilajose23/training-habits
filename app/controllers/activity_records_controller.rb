@@ -24,7 +24,9 @@ class ActivityRecordsController < ApplicationController
   # POST /activity_records
   # POST /activity_records.json
   def create
-    @activity_record = ActivityRecord.new(activity_record_params)
+    @activity_record = current_user.activity_records.new(activity_record_params)
+    @activity_record.user = current_user
+
 
     respond_to do |format|
       if @activity_record.save
@@ -69,6 +71,6 @@ class ActivityRecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_record_params
-      params.require(:activity_record).permit(:date, :description, :quantity, :activity_type_id, :user_id)
+      params.require(:activity_record).permit(:date, :description, :quantity, :activity_type_id)
     end
 end
