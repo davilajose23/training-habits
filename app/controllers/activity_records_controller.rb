@@ -4,7 +4,7 @@ class ActivityRecordsController < ApplicationController
   # GET /activity_records
   # GET /activity_records.json
   def index
-    @activity_records = ActivityRecord.all
+    @activity_records = ActivityRecord.all.order(date: :desc)
     @route = 'records'
   end
 

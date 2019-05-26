@@ -1,3 +1,10 @@
+
+<style>
+/* Added here to stablish priority over default style */
+.datepicker-table td.is-today{
+    color: #0277bd ;
+ }
+</style>
 <%= form_with(model: activity_record, local: true) do |form| %>
   <% if activity_record.errors.any? %>
     <div id="error_explanation">
@@ -34,6 +41,6 @@
 
 
   <div class="actions right">
-    <%= form.submit 'Update' , :class => 'btn' %>
+    <%= form.submit 'Update' , :class => 'btn light-blue darken-3 white-text' %>
   </div>
 <% end %>
