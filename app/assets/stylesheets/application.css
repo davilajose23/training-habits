@@ -25,3 +25,8 @@
  .pt-3{
      padding-top: 1.5em;
  }
+
+ a:hover, a:visited {
+   color: #666;
+   background-color: transparent !important;
+}
