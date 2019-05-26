@@ -10,6 +10,7 @@ class ActivityRecordsController < ApplicationController
   # GET /activity_records/1
   # GET /activity_records/1.json
   def show
+    redirect_to activity_records_url
   end
 
   # GET /activity_records/new
@@ -24,14 +25,14 @@ class ActivityRecordsController < ApplicationController
   # POST /activity_records
   # POST /activity_records.json
   def create
-    @activity_record = current_user.activity_records.new(activity_record_params)
+    @activity_record = ActivityRecord.new(activity_record_params)
     @activity_record.user = current_user
 
 
     respond_to do |format|
       if @activity_record.save
-        format.html { redirect_to @activity_record, notice: 'Activity record was successfully created.' }
-        format.json { render :show, status: :created, location: @activity_record }
+        format.html { redirect_to activity_records_url, notice: 'Activity record was successfully created.' }
+        #format.json { render :index, status: :created, location: @activity_record }
       else
         format.html { render :new }
         format.json { render json: @activity_record.errors, status: :unprocessable_entity }
@@ -44,8 +45,8 @@ class ActivityRecordsController < ApplicationController
   def update
     respond_to do |format|
       if @activity_record.update(activity_record_params)
-        format.html { redirect_to @activity_record, notice: 'Activity record was successfully updated.' }
-        format.json { render :show, status: :ok, location: @activity_record }
+        format.html { redirect_to activity_records_url, notice: 'Activity record was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @activity_record }
       else
         format.html { render :edit }
         format.json { render json: @activity_record.errors, status: :unprocessable_entity }
