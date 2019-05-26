@@ -34,3 +34,13 @@
 .btn-wide{
    width: 100%;
 }
+
+@media only screen and (max-width: 992px){
+   main.padding-left {
+      padding-left: 0 !important;
+   }
+}
+
+main.padding-left {
+   padding-left: 300px;
+}

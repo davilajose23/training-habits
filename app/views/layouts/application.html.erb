@@ -14,13 +14,13 @@
   </head>
 
   <body>
-    <nav class="light-blue darken-4">
+    <div class="navbar-fixed">
+    <nav class="light-blue darken-4 ">
       <div class="nav-wrapper">
         <a href="/" class="brand-logo">Training Habits</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down nav-items">
           <% if user_signed_in? %>
-            <li>Logged in as <strong><%= current_user.email %></strong>.<li>
             <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
             <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </li>
           <% else %>
@@ -31,28 +31,48 @@
         </ul>
       </div>
     </nav>
+    </div>
+    <%# Side nav to small screen%>
     <ul class="sidenav" id="mobile-demo">
       <% if user_signed_in? %>
-        <li>Logged in as <strong><%= current_user.email %></strong>.<li>
-        <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
-        <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </li>
+      <li class=""><a class="subheader"><span class=" name"><%= current_user.name %></span></a></li>
+      <li><a class="subheader"><span class=" email"><%= current_user.email %></span></a></li>
+      <li> <%= link_to 'Edit profile', edit_user_registration_path  %> </li>
+      <li> <%= link_to "Logout", destroy_user_session_path, method: :delete  %> </li>
+      <li><div class="divider"></div></li>
+      <li class="<%= 'active' if @route == 'types' %>"><a href="/activity_types">Activities</a></li>
+      <li class="<%= 'active' if @route == 'records' %>"><a class="waves-effect" href="/activity_records">Records</a></li>
+      
+          
       <% else %>
         <li> <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> </li>
         <li> <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> </li>
       <% end %>
     </ul>
-          
 
+    <%# Side nav fixed to large screen%>
+    <% if user_signed_in? %>
+    <ul id="slide-out" class="sidenav sidenav-fixed hide-on-med-and-down" style="top: 64px">
+      <li class=""><a class="subheader"><span class=" name"><%= current_user.name %></span></a></li>
+      <li><a class="subheader"><span class=" email"><%= current_user.email %></span></a></li>
+      <li><div class="divider"></div></li>
+      <li class="<%= 'active' if @route == 'types' %>"><a href="/activity_types">Activities</a></li>
+      <li class="<%= 'active' if @route == 'records' %>"><a class="waves-effect" href="/activity_records">Records</a></li>
+    </ul>
+    <% end %>
+
+    <%# Messages to the user%>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+
+    <%# Adjust left padding when user signed in%>
     
-    <div class="container">
-      <%= yield %>
-    </div>
+    <main class="<%= 'padding-left' if user_signed_in? %>">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
     
 
     <!-- Compiled and minified JavaScript Materialize -->

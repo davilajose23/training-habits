@@ -5,21 +5,25 @@ class ActivityRecordsController < ApplicationController
   # GET /activity_records.json
   def index
     @activity_records = ActivityRecord.all
+    @route = 'records'
   end
 
   # GET /activity_records/1
   # GET /activity_records/1.json
   def show
     redirect_to activity_records_url
+    @route = 'records'
   end
 
   # GET /activity_records/new
   def new
     @activity_record = ActivityRecord.new
+    @route = 'records'
   end
 
   # GET /activity_records/1/edit
   def edit
+    @route = 'records'
   end
 
   # POST /activity_records

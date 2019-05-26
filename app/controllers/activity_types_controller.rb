@@ -5,20 +5,24 @@ class ActivityTypesController < ApplicationController
   # GET /activity_types.json
   def index
     @activity_types = ActivityType.all
+    @route = 'types'
   end
 
   # GET /activity_types/1
   # GET /activity_types/1.json
   def show
+    @route = 'types'
   end
 
   # GET /activity_types/new
   def new
     @activity_type = ActivityType.new
+    @route = 'types'
   end
 
   # GET /activity_types/1/edit
   def edit
+    @route = 'types'
   end
 
   # POST /activity_types
