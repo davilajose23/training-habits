@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Activity Types</h1>
+<row class="center right">
+    <%= link_to 'New Activity', new_activity_type_path, :class => 'btn light-blue darken-3 white-text right-align' %>
+</row>
 
-<table>
+<h5>Activity Types</h5>
+
+<table class=" highlight striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,9 +20,8 @@
       <tr>
         <td><%= activity_type.name %></td>
         <td><%= activity_type.unit %></td>
-        <td><%= link_to 'Show', activity_type %></td>
-        <td><%= link_to 'Edit', edit_activity_type_path(activity_type) %></td>
-        <td><%= link_to 'Destroy', activity_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to(raw("<i class='material-icons grey-text'>edit</i>"), edit_activity_type_path(activity_type)) %></td>
+        <td><%= link_to(raw("<i class='material-icons grey-text'>delete</i>"), activity_type, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +29,3 @@
 
 <br>
 
-<%= link_to 'New Activity Type', new_activity_type_path %>
