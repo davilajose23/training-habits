@@ -24,7 +24,7 @@
   </div>
 
   <div id="answers" class="input-field field">    
-    <%= form.collection_select(:activity_type_id ,ActivityType.all, :id, :name) %>
+    <%= form.collection_select(:activity_type_id ,ActivityType.all, :id, :name_and_quantity) %>
     <label>Select Activity Type</label>
   </div>
   <div class="field">
