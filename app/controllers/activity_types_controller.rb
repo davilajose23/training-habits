@@ -12,6 +12,7 @@ class ActivityTypesController < ApplicationController
   # GET /activity_types/1.json
   def show
     @route = 'types'
+    redirect_to activity_types_url
   end
 
   # GET /activity_types/new
@@ -32,8 +33,8 @@ class ActivityTypesController < ApplicationController
 
     respond_to do |format|
       if @activity_type.save
-        format.html { redirect_to @activity_type, notice: 'Activity type was successfully created.' }
-        format.json { render :show, status: :created, location: @activity_type }
+        format.html { redirect_to activity_types_url, notice: 'Activity type was successfully created.' }
+        #format.json { render :show, status: :created, location: @activity_type }
       else
         format.html { render :new }
         format.json { render json: @activity_type.errors, status: :unprocessable_entity }
@@ -46,8 +47,8 @@ class ActivityTypesController < ApplicationController
   def update
     respond_to do |format|
       if @activity_type.update(activity_type_params)
-        format.html { redirect_to @activity_type, notice: 'Activity type was successfully updated.' }
-        format.json { render :show, status: :ok, location: @activity_type }
+        format.html { redirect_to activity_types_url, notice: 'Activity type was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @activity_type }
       else
         format.html { render :edit }
         format.json { render json: @activity_type.errors, status: :unprocessable_entity }
