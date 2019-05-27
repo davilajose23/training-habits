@@ -20,7 +20,7 @@
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.text_field :date, :class => 'datepicker', :required => true %>
+    <%= form.text_field :date, :class => 'datepicker', :required => true , :placeholder => 'Date of your activity'%>
   </div>
 
   <div id="answers" class="input-field field">    
@@ -29,12 +29,12 @@
   </div>
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description, :required => true %>
+    <%= form.text_field :description, :required => true, :placeholder => 'running in central park' %>
   </div>
 
   <div class="field">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity, :required => true %>
+    <%= form.number_field :quantity, :required => true, :placeholder => '30 (min)' %>
   </div>
 
   <div class="actions right">
