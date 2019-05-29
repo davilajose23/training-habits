@@ -6,6 +6,7 @@ class ActivityTypesController < ApplicationController
   def index
     @activity_types = ActivityType.all
     @route = 'types'
+    @records = ActivityRecord.all
   end
 
   # GET /activity_types/1
